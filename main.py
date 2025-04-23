@@ -11,6 +11,11 @@ class DataModel(BaseModel):
     Credit_Number: int
     Email: List[EmailStr]  # Use EmailStr to automatically validate email format
 
+app = FastAPI()
+@app.get("/")
+def read_root():
+    return {"message": "Hello from Render! 🎉 Your FastAPI app is live!"}
+
 # Create a POST endpoint to accept the data
 @app.post("/submit-data")
 async def submit_data(data: List[DataModel]):
